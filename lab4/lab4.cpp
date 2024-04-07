@@ -1,9 +1,9 @@
 ﻿#include <iostream>
 #include <mpi.h>
 #include <chrono>
+#include <string>
 
 const int N = 100;
-std::chrono::high_resolution_clock::time_point startTime, finishTime;
 
 double A[N][N];
 double B[N][N];
@@ -26,7 +26,6 @@ int main(int argc, char** argv) {
     MPI_Comm_size(MPI_COMM_WORLD, &size);
 
     if (rank == 0) {
-        startTime = std::chrono::high_resolution_clock::now();
         for (int i = 0; i < N; ++i) {
             for (int j = 0; j < N; ++j) {
                 A[i][j] = i + 1;
